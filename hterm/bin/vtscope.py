@@ -325,11 +325,7 @@ class VTScope(object):
   def cmd_bstep(self, args):
     """Step a given number of bytes."""
 
-    if len(args) > 0:
-      count = int(args[0])
-    else:
-      count = 1
-
+    count = int(args[0]) if len(args) > 0 else 1
     self.end_position = self.start_position + count
     if self.end_position == len(self.data):
       self.end_position = len(self.data)
